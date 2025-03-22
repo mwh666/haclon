@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<c>*截取一块区域</c>
+<l>rectangle1_domain(Image, ImageReduced, 114, 190, 210, 240)</l>
+<c>*检测边缘 用sobel检测的话边界比较清晰  EdgeDirection是输出每个点的方向</c>
+<l>sobel_dir(ImageReduced, EdgeAmplitude,EdgeDirection, 'sum_abs', 3)</l>
+<c>*划定灰度范围</c>
+<c></c>
+<l>threshold(EdgeAmplitude, Region, 55, 255)</l>
+<c>*得到region只在指定区域内的边缘方向信息</c>
+<l>reduce_domain(EdgeDirection,Region,EdgeDirectionReduced)</l>
+<c>*进行hough变换</c>
+<l>hough_lines_dir(EdgeDirectionReduced, HoughImage, Lines, 4, 2, 'mean', 3, 20, 5, 5, 'true', Angle, Dist)</l>
+<l>gen_region_hline(LinesHNF, Angle, Dist)</l>
+<c></c>
+<l>dev_display(Image)</l>
+<l>dev_set_colored(12)</l>
+<c></c>
+<l>dev_set_draw('margin')</l>
+<l>dev_display(LinesHNF)</l>
+<l>dev_set_draw('fill')</l>
+<l>dev_display(Lines)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

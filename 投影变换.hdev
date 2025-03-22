@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-3.png')</l>
+<c>*打开窗口</c>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<c>*设置XLD等区域颜色</c>
+<l>dev_set_color('red')</l>
+<c>*设置XLD等区域线宽</c>
+<l>dev_set_line_width(2)</l>
+<c>*定义坐标变量</c>
+<l>X:=[163,280,362,75]</l>
+<l>Y:=[125,120,361,340]</l>
+<c>*为每个输入点生成十字形状的XLD轮廓</c>
+<l>gen_cross_contour_xld(Cross, X, Y, 6, 0.785398)</l>
+<l>dev_display(Image)</l>
+<l>dev_display(Cross)</l>
+<l>hom_vector_to_proj_hom_mat2d(X,Y,[1,1,1,1],[75,360,360,75],[110,110,360,360],[1,1,1,1],'normalized_dlt', HomMat2D)</l>
+<l>dev_open_window(0, 0, 512, 512, 'black', WindowHandle1)</l>
+<c>*输出一个经过投影变换的图像</c>
+<l>projective_trans_image(Image, TransImage, HomMat2D, 'bilinear', 'false', 'false')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

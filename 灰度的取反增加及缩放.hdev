@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-4 4-5.png')</l>
+<l>get_image_size(Image, Width, Height)</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c>*取反</c>
+<l>invert_image(GrayImage, ImageInvert)</l>
+<c>*增加对比度</c>
+<l>emphasize(GrayImage, ImageEmphasize, Width, Height, 2)</l>
+<c>*缩放灰度</c>
+<l>scale_image(GrayImage, ImageScaled, 0.5, 50)</l>
+<l>min_max_gray(Image, GrayImage, 0, Min, Max, Range)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

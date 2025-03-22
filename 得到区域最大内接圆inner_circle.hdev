@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<l>dev_close_window()</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<c>*设置输出颜色为白色</c>
+<l>dev_set_color('white')</l>
+<c>*图像模式为填充</c>
+<l>dev_set_draw('fill')</l>
+<c>*区域生长</c>
+<l>regiongrowing(Image, Regions, 1, 1, 3, 500)</l>
+<c>*获得各个区域中的最大内切圆及最大内切圆的中心坐标和半径</c>
+<l>inner_circle(Regions, Row, Column, Radius)</l>
+<l>dev_set_color('red')</l>
+<c>*显示每个区域的内切圆</c>
+<l>gen_circle(Circle, Row, Column, Radius)</l>
+<l>disp_circle(WindowHandle, Row, Column, Radius)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

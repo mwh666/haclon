@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/猴子.png')</l>
+<c>*阈值分割，将图像转换为区域</c>
+<l>threshold(Image, Region, 200, 255)</l>
+<l>connection(Region, ConnectedRegions)</l>
+<c>*挑选出区域面积为1700-2000的对象</c>
+<l>select_shape(ConnectedRegions,SelectedRegions,'area','and', 1700, 2000)</l>
+<c>*计算指定区域的灰度特征值   提取区域中最小灰度值</c>
+<l>gray_features(SelectedRegions,Image,'min',MinValue)</l>
+<c>*提取区域的面积</c>
+<l>gray_features(SelectedRegions,Image,'max',Value)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

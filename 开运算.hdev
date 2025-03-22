@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/7/7-3开运算.png')</l>
+<c></c>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>threshold (GrayImage, Regions, 0, 239)</l>
+<l>connection(Regions, ConnectedRegions)</l>
+<l>dev_set_color('green')</l>
+<c>*去毛刺，使用开运算。毛刺是什么形状，就用什么形状的结构元素</c>
+<l>opening_circle(Regions, RegionOpening, 11)</l>
+<c></c>
+<l>opening_rectangle1(Regions,RegionOpening1, 10, 10)</l>
+<c></c>
+<c></c>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

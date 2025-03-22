@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>dev_open_window_fit_image(GrayImage, 0, 0, -1, -1, WindowHandle)</l>
+<c>*Prewitt边缘检测</c>
+<l>prewitt_amp(GrayImage, ImageEdgeAmp)</l>
+<c>*阈值操作</c>
+<l>threshold (ImageEdgeAmp, Regions, 20, 255)</l>
+<c>*边缘细化</c>
+<l>skeleton(Regions, Skeleton)</l>
+<l>dev_display(GrayImage)</l>
+<l>dev_display(Skeleton)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

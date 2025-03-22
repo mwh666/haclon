@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/分水岭.jpg')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c>*进行高斯平滑</c>
+<l>gauss_filter(GrayImage, ImageGauss, 3)</l>
+<c>*分水岭</c>
+<l>watersheds(ImageGauss, Basins, Watersheds)</l>
+<c>*阈值化分水岭</c>
+<l>watersheds_threshold(ImageGauss, Basins1, 50)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

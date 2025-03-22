@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-11.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>get_image_size(Image, Width, Height)</l>
+<l>*dev_open_window(0, 0, Width, Height, 'black', WindowHandle)</l>
+<c>*构建一个高通滤波器</c>
+<l>gen_highpass(ImageHighpass, 0.1, 'n', 'dc_center',  Width, Height)</l>
+<c>*进行傅里叶变换</c>
+<l>fft_generic(GrayImage, ImageFFT, 'to_freq', -1, 'none', 'dc_center', 'complex')</l>
+<c>*获得通过高通滤波后的图像</c>
+<l>convol_fft(ImageFFT, ImageHighpass, ImageConvol)</l>
+<c>*傅里叶反变换</c>
+<l>fft_generic(ImageConvol, ImageFFT1, 'from_freq', 1, 'none', 'dc_center', 'complex')</l>
+<l>dev_display(ImageFFT1)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

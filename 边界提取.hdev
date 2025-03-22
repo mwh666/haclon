@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/7/7-6.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c></c>
+<l>threshold (GrayImage, Regions, 75, 255)</l>
+<c>*边界提取，提取内边界</c>
+<l>boundary(Regions, RegionBorder, 'inner')</l>
+<c>*边界提取，提取内边界(可填充边缘孔洞)</c>
+<l>boundary(Regions, RegionBorder1,'inner_filled')</l>
+<c>*边界提取，提取外边界</c>
+<l>boundary(Regions,RegionBorder2,'outer')</l>
+<c></c>
+<l>concat_obj(RegionBorder,RegionBorder1,ObjectsConcat)</l>
+<l>concat_obj(ObjectsConcat,RegionBorder2,ObjectsConcat)</l>
+<l>get_image_size(GrayImage, Width, Height)</l>
+<l>dev_display(ObjectsConcat)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

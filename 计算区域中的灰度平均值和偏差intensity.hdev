@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/猴子.png')</l>
+<l>threshold(Image, Region, 210, 255)</l>
+<l>connection(Region,ConnectedRegions)</l>
+<c></c>
+<l>select_shape(ConnectedRegions,SelectedRegions,'area', 'and', 9000, 10000)</l>
+<c>*计算指定区域的灰度平均值和偏差</c>
+<l>intensity(SelectedRegions, Image, Mean, Deviation)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

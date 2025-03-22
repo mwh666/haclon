@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<l>dev_set_color('white')</l>
+<l>dev_set_draw('fill')</l>
+<c></c>
+<c>*进行区域生长，划定不同灰度区域  1,1表示像素之间没有间隔  3表示灰度值相差3的会被归类到一个区域中</c>
+<l>regiongrowing(Image, Regions, 1, 1, 3, 10)</l>
+<l>dev_set_color('red')</l>
+<c>*根据灰度值获得区域</c>
+<l>select_gray(Regions, Image, SelectedRegions, 'mean', 'and', 190, 250)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

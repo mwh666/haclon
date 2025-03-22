@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/7/7-3 闭运算.png')</l>
+<c></c>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c></c>
+<l>threshold (GrayImage, Regions, 0, 239)</l>
+<c>*闭运算  先膨胀后腐蚀</c>
+<l>closing_circle(Regions, RegionClosing, 7)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

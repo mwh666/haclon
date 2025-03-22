@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-1.png')</l>
+<c>*转换成灰度图</c>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c>*阈值分割</c>
+<l>threshold (GrayImage, Regions, 9, 125)</l>
+<c>*点击连接显示不同颜色</c>
+<l>connection (Regions, Connection)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

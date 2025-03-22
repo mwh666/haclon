@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/大小不一白方块.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c></c>
+<l>threshold (GrayImage, Regions, 44, 255)</l>
+<c></c>
+<l>*connection(Regions, ConnectedRegions)</l>
+<c>*先腐蚀，使过小的方块消失</c>
+<l>erosion_rectangle1(Regions, RegionErosion, 24, 24)</l>
+<c>*膨胀，使保留下来的方块恢复成原来的形状</c>
+<l>dilation_rectangle1(RegionErosion, RegionDilation, 24,24)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

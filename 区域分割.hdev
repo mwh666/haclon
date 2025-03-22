@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/5/盲文.jpg')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>dev_open_window_fit_image(GrayImage, 0, 0, -1, -1, WindowHandle)</l>
+<c></c>
+<l>dev_display(GrayImage)</l>
+<c>*在图像上使用均值滤波器进行适当平滑</c>
+<l>mean_image(GrayImage, ImageMean, 39, 39)</l>
+<c>*动态阈值分割，提取圆区域</c>
+<l>dyn_threshold(GrayImage, ImageMean, RegionDynThresh, 15, 'not_equal')</l>
+<l>dev_display(GrayImage)</l>
+<l>dev_display(RegionDynThresh)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

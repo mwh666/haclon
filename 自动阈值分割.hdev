@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/5/5-2.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>get_image_size(GrayImage, Width, Height)</l>
+<l>dev_open_window(0, 0, Width, Height, 'black', WindowHandle)</l>
+<l>dev_display(GrayImage)</l>
+<c>*sigma为平滑</c>
+<l>auto_threshold(GrayImage, Regions, 5)</l>
+<c></c>
+<l>dev_display(Regions)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

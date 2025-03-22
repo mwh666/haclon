@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-9.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_display(GrayImage)</l>
+<c>*拉普拉斯-高斯平滑算子</c>
+<l>laplace_of_gauss(GrayImage, ImageLaplace1, 2.0)</l>
+<l>*laplace(GrayImage,ImageLaplace,'signed',3,'n_4')</l>
+<l>dev_display(ImageLaplace1)</l>
+<c>*将过零点整合成一个区域并返回</c>
+<l>zero_crossing(ImageLaplace1, RegionCrossing)</l>
+<l>dev_display(RegionCrossing)</l>
+<c></c>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

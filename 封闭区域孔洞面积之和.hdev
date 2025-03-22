@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/孔洞.jpg')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c>*红色区域包裹的才是孔洞</c>
+<l>threshold (GrayImage, Regions1, 100, 204)</l>
+<l>area_holes(Regions1, Area)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/7/7-4.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c></c>
+<c>*对灰度图像进行腐蚀操作 数字越大，图像越模糊</c>
+<l>gray_erosion_shape(GrayImage, ImageMin, 5,5, 'octagon')</l>
+<c>*对灰度图像进行膨胀操作</c>
+<l>gray_dilation_shape(GrayImage, ImageMax, 5,5, 'octagon')</l>
+<c>*对灰度图像进行开运算(去除向上的噪声，如较亮的点)</c>
+<l>gray_opening_shape(GrayImage, ImageOpening, 5,5, 'octagon')</l>
+<c>*对灰度图像进行闭运算(去除向下的噪声)</c>
+<l>gray_closing_shape(GrayImage, ImageClosing, 5,5, 'octagon')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

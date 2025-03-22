@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/5/5-1.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>get_image_size(GrayImage, Width, Height)</l>
+<l>dev_open_window(0, 0, Width, Height, 'black', WindowHandle)</l>
+<l>dev_set_color('red')</l>
+<l>dev_set_colored(12)</l>
+<c>*计算灰度直方图</c>
+<l>gray_histo(GrayImage, GrayImage, AbsoluteHisto, RelativeHisto)</l>
+<c>*取得最大最小阈值</c>
+<l>histo_to_thresh(RelativeHisto, 8, MinThresh, MaxThresh)</l>
+<l>threshold(GrayImage,Region,MinThresh[0],MaxThresh[0])</l>
+<l>dev_display(Region)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

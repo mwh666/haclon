@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-9.png')</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<c></c>
+<l>dev_display(Image)</l>
+<l>dev_set_draw('margin')</l>
+<l>dev_set_line_width(3)</l>
+<c>*创建矩形区域</c>
+<l>gen_rectangle1(Rectangle,30, 20, 100, 200)</l>
+<c>*提取矩形区域（必须提取出来，将其作为一个独立的对象）</c>
+<l>reduce_domain(Image, Rectangle, ImageReduced)</l>
+<c>*计算所画区域的总灰度值和中心</c>
+<l>area_center_gray(Rectangle, ImageReduced, Area, Row, Column)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

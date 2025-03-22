@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<l>dev_open_window(0, 0, 512, 512, 'black', WindowHandle)</l>
+<l>dev_display(Image)</l>
+<l>dev_set_colored(12)</l>
+<c>*设置输出的字体  输出位置WindowHandle  字号   类型    粗体    非斜体</c>
+<l>set_display_font(WindowHandle, 14, 'mono', 'true', 'false')</l>
+<c>*区域生长</c>
+<l>regiongrowing(Image, Regions, 1, 1, 3, 100)</l>
+<c>*总结区域的总数</c>
+<l>count_obj(Regions, Number)</l>
+<c>*获得每个区域中心点的坐标和面积</c>
+<l>area_center(Regions, Area, Row, Column)</l>
+<c></c>
+<l>center:=|Area|</l>
+<c>*获取字符串的空间大小 12345为字符串，按情况而定，可写其他数字</c>
+<l>get_string_extents(WindowHandle, '12345', Ascent, Descent, Width, Height)</l>
+<c>*在每个区域循环输出</c>
+<l>for i:=0 to center-1 by 1</l>
+<c>    *              输出地址    显示内容  图像坐标       横坐标         纵坐标           字体颜色  true为橙色框，false为无框，可选择颜色，如#0001</c>
+<l>    disp_message(WindowHandle,Area[i], 'image', Row[i]-Width/2, Column[i]-Height/2, 'blue', 'true')</l>
+<l>endfor</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

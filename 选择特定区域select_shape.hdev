@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image1,'C:/Users/69138/Desktop/image/猴子.png')</l>
+<l>rgb1_to_gray(Image1, Image)</l>
+<l>threshold (Image, Regions, 121, 255)</l>
+<l>connection (Regions, Connection) </l>
+<c>*利用面积和长宽比进行区域选择 and表示与  or表示或</c>
+<l>select_shape(Connection,SelectedRegions,['area','anisometry'],'and',[100,1],[2000,1.7])</l>
+<l>dev_display(Image)</l>
+<l>dev_display(SelectedRegions)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

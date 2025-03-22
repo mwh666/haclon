@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/台球.jpg')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c></c>
+<c>*为灰度图像生成半径为20的圆形结构元素</c>
+<l>gen_disc_se(SE, 'byte', 20, 20, 0)</l>
+<c>*进行开运算  对GrayImage用SE结构元素进行开运算，获得ImageOpening</c>
+<l>gray_opening(GrayImage, SE, ImageOpening)</l>
+<c>*进行顶帽运算</c>
+<l>gray_tophat(GrayImage,SE,ImageTopHat)</l>
+<c></c>
+<c>*三个图像对比显示  concat_obj连接两个图像  tile_images展示图像</c>
+<l>concat_obj(GrayImage, ImageOpening, ObjectsConcat)</l>
+<l>concat_obj(ObjectsConcat,ImageTopHat,ObjectsConcat)</l>
+<l>tile_images(ObjectsConcat,TiledImage,3,'horizontal')</l>
+<c></c>
+<c></c>
+<c></c>
+<l>dev_open_window_fit_image(GrayImage,0, 0, -1, -1, WindowHandle)</l>
+<c>*对图像进行闭运算(消除亮背景下的较暗区域)</c>
+<l>gray_closing(GrayImage,SE,ImageClosing)</l>
+<c>*进行底帽运算</c>
+<l>gray_bothat(GrayImage,SE,ImageBotHat)</l>
+<c></c>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<c>*运用Canny算子</c>
+<l>edges_image(GrayImage, ImaAmp, ImaDir, 'canny', 1, 'nms', 12, 22)</l>
+<c>*阈值分割</c>
+<l>threshold (ImaDir, Regions, 0, 179)</l>
+<c>*提取骨架</c>
+<l>skeleton(Regions, Skeleton)</l>
+<c>*转换为XLD骨架</c>
+<l>gen_contours_skeleton_xld(Skeleton, Contours, 1, 'filter')</l>
+<l>dev_display(GrayImage)</l>
+<c>*设置为六种颜色</c>
+<l>dev_set_colored(6)</l>
+<l>dev_display(Contours)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

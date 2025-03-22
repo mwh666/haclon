@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-9.png')</l>
+<c>*画出矩形</c>
+<l>gen_rectangle1(Rectangle, 100, 200, 200, 300)</l>
+<c>*将所选择的区域从图像中取出</c>
+<l>reduce_domain(Image, Rectangle, ImageReduced)</l>
+<l>gen_rectangle1(Rectangle1, 350, 100, 450, 200)</l>
+<l>reduce_domain(ImageReduced, Rectangle1, ImageReduced1)</l>
+<c>*提取第一个区域的最大和最小灰度值</c>
+<l>min_max_gray(Rectangle, ImageReduced1, 0, Min, Max, Range)</l>
+<l>min_max_gray(Rectangle1, ImageReduced1, 0, Min1, Max1, Range1)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/4/4-8.png')</l>
+<c>*亚像素边缘提取</c>
+<l>edges_sub_pix(Image, Edges, 'canny', 1.1, 12, 22)</l>
+<c>*划定查看区域</c>
+<l>dev_set_part(160,250,210,300)</l>
+<l>dev_display(Image)</l>
+<l>dev_display(Edges)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

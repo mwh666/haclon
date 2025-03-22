@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image1,'C:/Users/69138/Desktop/image/4/4-9.png')</l>
+<l>rgb1_to_gray(Image1, Image)</l>
+<l>get_image_size(Image, Width, Height)</l>
+<l>dev_close_window()</l>
+<l>dev_open_window(0, 0, Width, Height, 'black', WindowHandle)</l>
+<l>dev_display(Image)</l>
+<l>dev_set_draw('margin')</l>
+<l>dev_set_line_width(5)</l>
+<c></c>
+<l>gen_rectangle1(Rectangle, 130, 170, 230, 270)</l>
+<l>gen_rectangle1(Rectangle1, 400, 100, 500, 200)</l>
+<c></c>
+<c>*计算灰度共生矩阵并计算灰度特征 能量 相关性 同质性 对比度 </c>
+<l>cooc_feature_image(Rectangle, Image, 6, 0, Energy, Correlation, Homogeneity, Contrast)</l>
+<l>cooc_feature_image(Rectangle1, Image, 6, 0, Energy1, Correlation1, Homogeneity1, Contrast1)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

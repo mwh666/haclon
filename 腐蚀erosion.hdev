@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/7/7-1.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>threshold (GrayImage, Regions, 0, 251)</l>
+<l>dev_set_color('green')</l>
+<c>*使用半径为11的圆形结构元素腐蚀图像(边界缩小了11个像素点)</c>
+<l>erosion_circle(Regions, Cir_RegionErosion, 11)</l>
+<c>*使用长11宽11的矩形结构元素腐蚀图像(边界缩小了5.5个像素点)</c>
+<l>erosion_rectangle1(Regions, Rec_RegionErosion, 11, 11)</l>
+<c>*使用自定义的椭圆(长轴13短轴11)结构元素腐蚀图像</c>
+<l>*dev_set_color('blue')</l>
+<l>gen_ellipse(Ellipse, 100, 100, 0, 13, 11)</l>
+<c>*迭代次数为1</c>
+<l>erosion1(Regions, Ellipse, RegionErosion, 1)</l>
+<c>*使用自定义的椭圆(长轴13短轴11)结构元素腐蚀图像（可设置参考点（中心点））,设为(0,0)</c>
+<l>erosion2(Regions,Ellipse,RegionErosion1, 0, 0, 1)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

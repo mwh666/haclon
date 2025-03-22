@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(ImageNoise,'C:/Users/69138/Desktop/image/4/4-10.png')</l>
+<l>get_image_size(ImageNoise, Width, Height)</l>
+<l>rgb1_to_gray(ImageNoise, GrayImage)</l>
+<c>*获得一个低通滤波模型</c>
+<l>gen_lowpass(ImageLowpass, 0.1, 'none', 'dc_center', Width, Height)</l>
+<c>*对噪声图像进行傅里叶变换,得到频率图像</c>
+<l>fft_generic(ImageNoise,ImageFFT, 'to_freq', -1, 'sqrt', 'dc_center', 'complex')</l>
+<c>*对频率图像进行低通滤波</c>
+<l>convol_fft(ImageFFT,ImageLowpass,ImageConvol)</l>
+<c>*对频率图像进行傅里叶反变换</c>
+<l>fft_generic(ImageConvol, ImageFFT1, 'from_freq', 1, 'sqrt', 'dc_center', 'complex')</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

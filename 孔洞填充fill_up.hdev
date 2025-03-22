@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Image,'C:/Users/69138/Desktop/image/5/5-2.png')</l>
+<l>rgb1_to_gray(Image, GrayImage)</l>
+<l>threshold (GrayImage, Regions, 43, 167)</l>
+<c>*孔洞填充</c>
+<l>fill_up(Regions, RegionFillUp)</l>
+<c></c>
+<c></c>
+<l>read_image(Image1,'C:/Users/69138/Desktop/image/猴子.png')</l>
+<l>rgb1_to_gray(Image1, GrayImage1)</l>
+<l>threshold (GrayImage1, Regions1, 146, 255)</l>
+<c>*针对性的孔洞填充 面积为1-200</c>
+<l>fill_up_shape(Regions1,RegionFillUp1,'area', 1,200)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>

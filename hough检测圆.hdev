@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hdevelop file_version="1.2" halcon_version="24.11.1.0">
+<procedure name="main">
+<interface/>
+<body>
+<l>read_image(Images,'C:/Users/69138/Desktop/image/三个圆.png')</l>
+<l>rgb1_to_gray(Images,Image)</l>
+<c>*进行sobel边缘提取</c>
+<l>sobel_dir(Image, EdgeAmplitude,EdgeDirection, 'sum_abs', 3)</l>
+<c>*进行阈值分割</c>
+<l>threshold (EdgeAmplitude, Regions, 33, 255)</l>
+<c>*对分割后的图像进行hough检测</c>
+<l>hough_circle_trans(Regions, HoughImage, 50)</l>
+<c></c>
+<c>*对单个图像进行检测</c>
+<l>connection(Regions, ConnectedRegions)</l>
+<c>*选中对象2进行hough检测</c>
+<l>select_obj(ConnectedRegions, Obj, 2)</l>
+<c>*50代表半径   60代表只取置信度为60%以上的圆  0代表圆的边缘为线的外边缘</c>
+<l>hough_circles(Obj, RegionOut, 50, 60, 0)</l>
+<c>*确定圆的圆心</c>
+<l>area_center(RegionOut, Area, Row, Column)</l>
+<l>dev_open_window_fit_image(Image, 0, 0, -1, -1, WindowHandle)</l>
+<l>dev_set_color('red')</l>
+<l>dev_set_line_width(5)</l>
+<l>dev_set_draw('margin')</l>
+<l>dev_display(Images)</l>
+<c>*显示检测的圆</c>
+<l>gen_circle(Circle, Row, Column, 50)</l>
+</body>
+<docu id="main">
+<parameters/>
+</docu>
+</procedure>
+</hdevelop>
